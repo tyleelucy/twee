@@ -1,0 +1,13 @@
+<h1>@<%= current_user.username %>'s Tweetz Feed</h1>
+<p>See what your friends of feathers are saying:</p>
+
+
+<div>
+    <% @following_tweets.each do |tweet| %>
+        <div class="well">
+        <%= image_tag tweet.user.avatar.url.to_s, size:40, class: "user-pic-nav img-circle" %> <strong><%= tweet.user.name %></strong>	
+	    <p>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
+	    <p><%= tweet.message.html_safe %></p>
+	</div>
+    <% end %>
+</div>

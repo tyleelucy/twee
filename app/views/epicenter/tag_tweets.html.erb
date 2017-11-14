@@ -1,0 +1,9 @@
+<h1>Showing Tweets for <%= @tag.phrase %> </h1>
+
+<% @tag.tweets.each do |tweet| %>
+<div class ='well'>
+	 <%= image_tag tweet.user.avatar.url.to_s, size:40, class: "user-pic-nav img-circle" %> <strong><%= tweet.user.name %></strong>	
+	    <p>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
+	    <p><%= tweet.message.html_safe %></p>
+	</div>
+    <% end %>
